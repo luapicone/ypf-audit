@@ -1,21 +1,38 @@
-# ypf-audit
+# YPF Audit
 
-Repositorio de la herramienta web para convertir auditorías por elemento.
+Aplicación web estática para convertir auditorías basadas en normas ISO en resultados agrupados por elemento y subelemento.
 
-## Contenido
+Los archivos se procesan completamente en el navegador y no se envían a ningún servidor.
 
-- `auditoria-web/`: aplicación web estática, lógica de cálculo, mapeos y pruebas.
-- `auditoria-web/tests/ejemplo_auditoria.xlsx`: archivo de ejemplo para validar la carga.
-- `auditoria-web/vendor/xlsx.full.min.js`: dependencia local para procesar planillas Excel.
-- `auditoria-web.zip`: archivo comprimido original conservado en el repositorio.
+## Estructura
 
-## Ejecución
+- `index.html`: entrada principal de la aplicación.
+- `app.js`: lectura del archivo e interfaz.
+- `calc.js`: motor de cálculo.
+- `mapping.js`: matriz normalizada de elementos y subelementos.
+- `vendor/xlsx.full.min.js`: procesamiento local de archivos Excel.
+- `tests/test_calc.js`: prueba del motor de cálculo.
+- `tests/ejemplo_auditoria.xlsx`: planilla de ejemplo.
 
-Abrir `auditoria-web/index.html` en un navegador o publicar esa carpeta como sitio estático.
+## Ejecución local
 
-## Prueba del cálculo
+Podés abrir `index.html` directamente en el navegador o servir el directorio raíz con cualquier servidor estático.
 
 ```bash
-cd auditoria-web
+npx serve .
+```
+
+## Pruebas
+
+```bash
 node tests/test_calc.js
 ```
+
+## Deploy
+
+El repositorio está listo para desplegarse desde la raíz como sitio estático:
+
+- Directorio raíz: `.`
+- Framework: `Other`
+- Build command: ninguno
+- Output directory: `.`
