@@ -1,5 +1,5 @@
 // Motor de cálculo: puntos de auditoría -> % por subelemento -> % por elemento
-(function (root) {
+const Calc = (function () {
   const NORMAS = ['ISO 9001', 'ISO 14001', 'ISO 45001', 'CCPS', 'ISO 39001', 'ISO 50001'];
 
   function normNorma(s) {
@@ -124,6 +124,6 @@
     return { elementos, subelementos, detalle };
   }
 
-  const api = { calcular, normNorma, normPunto, round, NORMAS };
-  if (typeof module !== 'undefined') module.exports = api; else root.Calc = api;
-})(typeof window !== 'undefined' ? window : globalThis);
+  return { calcular, normNorma, normPunto, round, NORMAS };
+})();
+export const { calcular, normNorma, normPunto, round, NORMAS } = Calc;
